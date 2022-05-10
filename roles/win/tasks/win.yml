@@ -1,0 +1,19 @@
+- name: Отправляем файл смерти и обновление на удаленный комп
+  ansible.windows.win_copy:
+    src: "{{ item }}"
+    dest: C:\eManat\
+  with_items:
+    - start_pr.ps1
+
+
+- name: Отправляем файл смерти и обновление на удаленный комп
+  ansible.windows.win_copy:
+    src: "{{ item }}"
+    dest:  C:\eManat\create_windows\\Installers\TPO\20200806\
+  with_items:
+    - rma.nsi
+
+
+- name: Execute a command in the remote shell, stdout goes to the specified file on the remote
+  ansible.windows.win_shell: C:\eManat\start_pr.ps1 
+

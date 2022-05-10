@@ -1,0 +1,32 @@
+
+- name: создаем папки
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - /home/andrey/emanat
+    - /home/andrey/emanat/update
+
+
+
+- name: Копируем обновление
+  shell: scp -r root@192.168.0.101:/etc/ansible/roles/win/files/"{{ client }}_v5" /home/andrey/emanat/update
+#    src:  "{{ client }}_v5"
+#    dest: /home/andrey/emanat/update
+
+
+- name: Копируем обновление
+  copy:
+    src: file-search.sh
+    dest: /home/andrey/emanat/update
+    mode: '0755'
+
+
+- name:  формируем список, удаляем и заменяем файлы
+  script: file-search.sh
+  
+#- name: создаем папки 
+#  file: 
+#    path: "{{ item }}"
+#    state: directory
+
