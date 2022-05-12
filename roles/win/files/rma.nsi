@@ -1,4 +1,4 @@
-; Оформление инсталятора
+; пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 !include "MUI.nsh"
 !define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\paylogic-install.ico"
 !define MUI_HEADERIMAGE_BITMAP "${NSISDIR}\Contrib\Graphics\Header\orange-nsis.bmp"
@@ -14,13 +14,13 @@ LicenseBkColor E5F0E2
 InstProgressFlags smooth colored
 
 
-; Для деинсталятора
+; пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 InstallDir "C:\smartPay\rma"
 InstallDirRegKey HKCU "Software\rma" ""
 
 !define MUI_ABORTWARNING
 !define MUI_FINISHPAGE_RUN
-!define MUI_FINISHPAGE_RUN_TEXT "Запустить приложение"
+!define MUI_FINISHPAGE_RUN_TEXT "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"
 !define MUI_FINISHPAGE_RUN_FUNCTION "LaunchLink"
 !insertmacro MUI_PAGE_LICENSE "license.txt"
 !insertmacro MUI_PAGE_COMPONENTS
@@ -31,7 +31,7 @@ InstallDirRegKey HKCU "Software\rma" ""
 !insertmacro MUI_PAGE_FINISH
 !insertmacro MUI_LANGUAGE "Russian"
 
-Section "ПО рабочего места" SecMain
+Section "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ" SecMain
 	SetOutPath "$INSTDIR"
 	File /r ".\prog\*.*"
 	
@@ -47,15 +47,15 @@ Section "ПО рабочего места" SecMain
 	WriteRegStr HKLM "SYSTEM\CurrentControlSet\Services\W32Time\Parameters" "Type" "NoSync"
 SectionEnd
 
-Section "Ярлыки в Главном меню" SecMainMenu
+Section "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ" SecMainMenu
 	CreateDirectory "$SMPROGRAMS\SmartPay - Agentin Is Yeri"
-	CreateShortCut "$SMPROGRAMS\SmartPay - Agentin Is Yeri\РМА Запуск.lnk" "$INSTDIR\runner.js" "" "$INSTDIR\logo.ico"
+	CreateShortCut "$SMPROGRAMS\SmartPay - Agentin Is Yeri\пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.lnk" "$INSTDIR\runner.js" "" "$INSTDIR\logo.ico"
 	CreateShortCut "$DESKTOP\SmartPay - Agentin Is Yeri.lnk" "$INSTDIR\runner.js" "" "$INSTDIR\logo.ico"
-	CreateShortCut "$SMPROGRAMS\SmartPay - Agentin Is Yeri\РМА Удаление.lnk" "$INSTDIR\Uninstall.exe"
+	CreateShortCut "$SMPROGRAMS\SmartPay - Agentin Is Yeri\пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.lnk" "$INSTDIR\Uninstall.exe"
 SectionEnd
 
-LangString DESC_SecMain ${LANG_ENGLISH} "Основная программа со всеми необходимыми библиотеками"
-LangString DESC_SecMainMenu ${LANG_ENGLISH} "Создание ярлыков в главном меню"
+LangString DESC_SecMain ${LANG_ENGLISH} "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"
+LangString DESC_SecMainMenu ${LANG_ENGLISH} "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ"
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
 	!insertmacro MUI_DESCRIPTION_TEXT ${SecMain} $(DESC_SecMain)

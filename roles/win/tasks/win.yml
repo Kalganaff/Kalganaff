@@ -1,19 +1,39 @@
-- name: Отправляем файл смерти и обновление на удаленный комп
+- name: Папку под скрипт и сборщик
+  win_file: 
+    path: C:\client
+    state: directory
+
+
+- name: Папку под скрипт и сборщик
+  win_file:
+    path: "{{ path_sborka }}"
+    state: directory
+
+
+- name: Закидываем сборщик
   ansible.windows.win_copy:
     src: "{{ item }}"
-    dest: C:\eManat\
+    dest: "{{ path_sborka }}"
   with_items:
-    - start_pr.ps1
+    - create_windows
 
 
-- name: Отправляем файл смерти и обновление на удаленный комп
+- name: Отправляем скрипт сборки
+  template:
+    src: "{{ item }}"
+    dest: "{{ path_sborka_ps }}"
+  with_items:
+    - start_pr.ps1.j2
+
+
+- name: Отправляем файл сборки
   ansible.windows.win_copy:
     src: "{{ item }}"
-    dest:  C:\eManat\create_windows\\Installers\TPO\20200806\
+    dest:  "{{ path_file_nsis }}"
   with_items:
-    - rma.nsi
+    - "{{ client }}.nsi"
 
 
-- name: Execute a command in the remote shell, stdout goes to the specified file on the remote
-  ansible.windows.win_shell: C:\eManat\start_pr.ps1 
+- name: Запускаем скрипт сборки
+  ansible.windows.win_shell: "{{ path_sborka_ps }}" 
 

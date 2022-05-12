@@ -1,0 +1,12 @@
+- hosts: all
+  vars_prompt:
+
+    - name: client
+      prompt: What is your client?
+      private: no
+
+
+
+
+  roles:
+    - win 

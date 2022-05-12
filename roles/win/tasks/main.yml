@@ -9,7 +9,7 @@
   when: ansible_distribution == 'Debian'
 
 - import_tasks: win.yml
-  when: ((ansible_distribution != 'Debian') or (ansible_distribution != 'RedHate'))
+  when: ansible_facts['os_family'] != "Debian"
 # tasks file for win
 #- name: Копируем обновления на линуху все будем делать там
 #  copy:

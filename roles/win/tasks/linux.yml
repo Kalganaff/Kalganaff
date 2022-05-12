@@ -4,29 +4,38 @@
     path: "{{ item }}"
     state: directory
   with_items:
-    - /home/andrey/emanat
-    - /home/andrey/emanat/update
-
-
-
-- name: Копируем обновление
-  shell: scp -r root@192.168.0.101:/etc/ansible/roles/win/files/"{{ client }}_v5" /home/andrey/emanat/update
-#    src:  "{{ client }}_v5"
-#    dest: /home/andrey/emanat/update
+    - "{{ path_client }}"
+    - "{{ path_update_linux }}"
 
 
 - name: Копируем обновление
-  copy:
-    src: file-search.sh
-    dest: /home/andrey/emanat/update
+  shell: scp -r root@192.168.0.100:"{{ path_update_ansible }}" "{{ path_update_linux }}"
+
+
+- name: Копируем сборщик
+  shell: scp -r root@192.168.0.100:"{{ path_ansible_files }}"/create_windows "{{ path_client }}"
+
+
+#- name: Копируем общий сборщик
+ # copy:
+  #  src: emanat_v5 
+   # dest: "{{ path_update_linux }}"
+
+
+#- name: Копируем общий сборщик
+#  copy:
+#    src:  create_windows
+#    dest: "{{ path_client }}"
+
+
+- name: Копируем обновление
+  template:
+    src: file-search.sh.j2
+    dest: "{{ path_client }}/file-search.sh"
     mode: '0755'
 
 
 - name:  формируем список, удаляем и заменяем файлы
-  script: file-search.sh
+  shell: "{{ path_client }}/file-search.sh"
   
-#- name: создаем папки 
-#  file: 
-#    path: "{{ item }}"
-#    state: directory
 
