@@ -1,29 +1,29 @@
 #!/bin/bash
+function parslib {
+	ls $PATH_PROG_LIB > {{ path_home }}do.txt
+	for i in ${ls[@]}; do
+		rm -f ${PATH_PROG_LIB}${i*}
 
+	done
+	rsync -avzh $PATH_UPDATE $PATH_PROG
+	ls $PATH_PROG_LIB  > {{ path_home }}posle.txt
+	comm   {{ path_home }}do.txt  {{ path_home }}posle.txt >  ${PATH_PROG_LIB}result-$date.log
+	rm -f  {{ path_home }}do.txt  {{ path_home }}posle.txt
+}
 DATE=`date '+%Y%m%d%H%M%S'`
 PATH_UPDATE_LIB={{ path_update_lib }}
 PATH_PROG_LIB= {{ path_prog_lib }}
 PATH_UPDATE= {{ path_update_linux }}
 PATH_PROG={{ path_prog }}
-
-ls $PATH_PROG_LIB > {{ path_home }}do.txt
-#Cоздаем список файлов и удаляем
-
 ls=($(ls $PATH_UPDATE_LIB | cut -d '.' -f1 | sed 's/\-[0-9]*$//'))
+parslib
 
-	for i in ${ls[@]}; do
-		rm -f ${PATH_PROG_LIB}${i*}
 
-	done
 
-#Загружаем обновление
-rsync -avzh $PATH_UPDATE $PATH_PROG
 
-ls $PATH_PROG_LIB  > {{ path_home }}posle.txt
 
-comm   {{ path_home }}do.txt  {{ path_home }}posle.txt >  ${PATH_PROG_LIB}result-$date.log
 
-rm -f  {{ path_home }}do.txt  {{ path_home }}posle.txt
+
 
 
 
