@@ -2,7 +2,7 @@
 windows2012 ansible_host=192.168.0.85
 
 [debian]
-debian10 ansible_host=192.168.0.69
+debian10 ansible_host=192.168.0.67
 
 [debian:vars]
 ansible_connection=ssh
