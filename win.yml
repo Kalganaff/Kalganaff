@@ -2,15 +2,21 @@
   vars_prompt:
 
     - name: client
-      prompt: What is your client?
+      prompt: Введи название клиента пример "emanat"
       private: no
 
-    - name: install java
-      prompt: Install java y/n
+    - name: java
+      prompt: Нужно добавлять java? y/n
       private: no
 
     - name: arh
-      prompt:
+      prompt: Какая нужна битность? 32 или 64
+      private: no
+
+    - name: ver
+      prompt: Введи номер версии например - 111
+      private: no
+
 
   roles:
     - win 

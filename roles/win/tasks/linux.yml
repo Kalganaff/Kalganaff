@@ -19,6 +19,6 @@
 
 
 - name:  формируем список, удаляем и заменяем файлы
-  shell: "{{ path_client }}/file-search.sh"
+  shell: "{{ path_client }}"/file-search.sh "{{ java }}" "{{ arh }}" "{{ ver }}"
   
 
