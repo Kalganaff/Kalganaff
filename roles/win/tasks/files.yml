@@ -1,0 +1,8 @@
+- name: Копируем обновление
+  shell: scp  "{{ ip_master }}":"{{ path_update_ansible }}" "{{ path_update_linux }}"
+
+- name: Копируем сборщик
+  shell: scp -r "{{ ip_master }}":"{{ path_ansible_files }}"/create_windows "{{ path_home }}"
+
+- name: Copy java files
+  shell: scp -r "{{ ip_master }}":"{{ path_ansible_files }}"/java "{{ path_home }}"
