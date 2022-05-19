@@ -3,8 +3,8 @@ slave: andrey
 ip_master: root@192.168.0.100
 ip_slave: root@192.168.0.67
 
-path_update_ansible: "/etc/ansible/roles/win/files/{{ client }}"
-path_ansible_files: "/etc/ansible/roles/win/files"
+path_update_ansible: "{{ path_home }}/Kalganaff/roles/win/files{{ client }}"
+path_ansible_files: "{{ path_home }}/Kalganaff/roles/win/files"
 #Lin vars
 path_home: "/home/{{ slave }}/preparation"
 #path lin new
