@@ -6,7 +6,7 @@
   with_items:
     - "{{ path_client }}"
     - "{{ path_update_linux }}"
-
+    - "{{ path_prog }}"
 
 - name: Copy script file search
   template:
