@@ -31,4 +31,4 @@ PATH_UPDATE= {{ path_update_linux }}
 PATH_PROG={{ path_prog }}
 ls=($(ls $PATH_UPDATE_LIB | cut -d '.' -f1 | sed 's/\-[0-9]*$//'))
 parslib
-javaadd $1 $2 $3
+javadd $1 $2 $3
