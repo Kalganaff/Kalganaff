@@ -5,8 +5,12 @@
       prompt: What is your client?
       private: no
 
+    - name: install java
+      prompt: Install java y/n
+      private: no
 
-
+    - name: arh
+      prompt:
 
   roles:
     - win 

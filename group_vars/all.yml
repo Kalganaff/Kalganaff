@@ -1,16 +1,27 @@
 master: user 
 slave: andrey
+ip_master: root@192.168.0.100
+ip_slave: root@192.168.0.67
 
-
-path_update_ansible: "/etc/ansible/roles/win/files/{{ client }}_v5"
+path_update_ansible: "/etc/ansible/roles/win/files/{{ client }}"
 path_ansible_files: "/etc/ansible/roles/win/files"
 #Lin vars
-path_home: "/home/{{ slave }}"
+path_home: "/home/{{ slave }}/preparation"
+#path lin new
 path_client: "{{ path_home }}/{{ client }}"
 path_update_linux: "{{ path_client }}/update"
-path_update_lib: "{{ path_update_linux }}/{{ client }}_v5/lib"
-path_prog_lib: "{{ path_client }}/prog/{{ client }}_v5/lib"
+path_update_lib: "{{ path_update_linux }}/lib"
+#path lin old
+path_prog_lib: "{{ path_prog }}/lib"
 path_prog:  "{{ path_client }}/prog"
+#path lin create windows
+
+#path java version
+path_java: "{{ path_prog }}/jre/work/"
+#path verifon
+
+#path sber
+
 #win vars
 path_home_win: "C:\\{{ client }}"
 path_sborka: "C:\\client\\sborka"
