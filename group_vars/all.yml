@@ -1,14 +1,17 @@
 master: user 
 slave: andrey
 
-path_home: "/home/{{ slave }}/"
-path_client: "{{ path_home }}/{{ client }}/"
-path_update_linux: "{{ path_client }}/update/"
-path_update_ansible: "/etc/ansible/roles/win/files/{{ client }}_v5/"
-path_ansible_files: "/etc/ansible/roles/win/files/"
-path_update_lib: "{{ path_update_linux }}/{{ client }}_v5/lib/"
-path_prog_lib: "{{ path_client }}/prog/{{ client }}_v5/lib/"
-path_prog:  "{{ path_client }}/prog/"
+
+path_update_ansible: "/etc/ansible/roles/win/files/{{ client }}_v5"
+path_ansible_files: "/etc/ansible/roles/win/files"
+#Lin vars
+path_home: "/home/{{ slave }}"
+path_client: "{{ path_home }}/{{ client }}"
+path_update_linux: "{{ path_client }}/update"
+path_update_lib: "{{ path_update_linux }}/{{ client }}_v5/lib"
+path_prog_lib: "{{ path_client }}/prog/{{ client }}_v5/lib"
+path_prog:  "{{ path_client }}/prog"
+#win vars
 path_home_win: "C:\\{{ client }}"
 path_sborka: "C:\\client\\sborka"
 path_sborka_ps: "{{ path_sborka }}\\start_pr.ps1"
