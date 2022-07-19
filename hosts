@@ -1,16 +1,16 @@
 [windows_server]
-windows2012 ansible_host=192.168.0.85
+windows2012 ansible_host=
 
 [debian]
-debian10 ansible_host=192.168.0.67
+debian10 ansible_host=
 
 [debian:vars]
 ansible_connection=ssh
 ansile_user=root
 
 [windows_server:vars]
-ansible_user= Admin
-ansible_password= Xudoy286
-ansible_port= 5986
+ansible_user=
+ansible_password= 
+ansible_port=5986
 ansible_connection= winrm
 ansible_winrm_server_cert_validation= ignore
