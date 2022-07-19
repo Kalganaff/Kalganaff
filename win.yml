@@ -2,7 +2,7 @@
   vars_prompt:
 
     - name: client
-      prompt: Введи название клиента пример "emanat"
+      prompt: Введи название клиента пример "123"
       private: no
 
     - name: java
