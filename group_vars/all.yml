@@ -1,7 +1,7 @@
-master: user 
-slave: andrey
-ip_master: root@192.168.0.100
-ip_slave: root@192.168.0.67
+master:  
+slave: 
+ip_master: 
+ip_slave: 
 
 path_update_ansible: "{{ path_home_m }}/Kalganaff/roles/win/files/{{ client }}/"
 path_ansible_files: "{{ path_home_m }}/Kalganaff/roles/win/files"
