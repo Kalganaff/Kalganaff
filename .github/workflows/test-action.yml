@@ -17,9 +17,15 @@ jobs:
     - name: hello
       run:
         echo "Hello message"
+
+    - name: check dir
+      run:  ls -la
         
     - name: git clone repo
-      uses: Kalganaff/Kalganaff@v1
+      uses: action/checkout@v1
       
     - name: Create Zip deployment package
       run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git* 
+
+    - name: check dir
+      run:  ls -la
