@@ -32,3 +32,6 @@ jobs:
       
     - name: check ansible
       run: ansible --version
+      
+    - name: check syntax yml
+      run: ansible-playbook win.yml --check
