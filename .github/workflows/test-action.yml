@@ -37,4 +37,4 @@ jobs:
       run: ansible-playbook win.yml --check
       
     - name: ping my server
-      run: ping-n 3 192.168.0.50
+      run: ping -n 3 192.168.0.50
