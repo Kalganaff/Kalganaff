@@ -1,0 +1,21 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI-CD-test
+
+
+
+on:
+  push:
+    branches: 
+      - main
+
+
+jobs:
+  my_ci_part:
+    runs-on: ubuntu-latest
+    
+    steps: 
+    - name: Git clone our repo
+      run:
+        echo "Hello message"
+        
