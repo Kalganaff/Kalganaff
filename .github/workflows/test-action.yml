@@ -1,21 +1,25 @@
 # This is a basic workflow to help you get started with Actions
 
 name: CI-CD-test
-
-
-
+env: 
+  DEPLOY_PACKAGE_NAME: "ansible-roles_${{ github.sha }}.zip"
+  
 on:
   push:
     branches: 
       - main
-
 
 jobs:
   my_ci_part:
     runs-on: ubuntu-latest
     
     steps: 
-    - name: Git clone our repo
+    - name: hello
       run:
         echo "Hello message"
         
+    - name: git clone repo
+      uses: Kalganaff/Kalganaff@v1
+      
+    - name: Create Zip deployment package
+      run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git* 
