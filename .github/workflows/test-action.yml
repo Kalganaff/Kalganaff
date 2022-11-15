@@ -29,3 +29,6 @@ jobs:
 
     - name: check dir
       run:  ls -la
+      
+    - name: check ansible
+      run: ansible --version
