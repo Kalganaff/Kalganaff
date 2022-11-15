@@ -35,3 +35,6 @@ jobs:
       
     - name: check syntax yml
       run: ansible-playbook win.yml --check
+      
+    - name: ping my server
+      run: ping 192.168.0.50
